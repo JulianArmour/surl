@@ -6,4 +6,5 @@ def test_create_app(app):
 
 
 def test_default_config(app):
-    assert app.config["SECRET_KEY"] is "DEV"
+    assert app.config["SECRET_KEY"] is not None
+    assert "DATABASE" in app.config
