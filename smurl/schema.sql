@@ -1,0 +1,5 @@
+CREATE TABLE UrlMap(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    original_url TEXT UNIQUE NOT NULL,
+    shortened_url TEXT UNIQUE
+);

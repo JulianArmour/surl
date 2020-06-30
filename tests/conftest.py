@@ -10,10 +10,7 @@ from smurl import create_app
 def app():
     db_fd, db_path = tempfile.mkstemp()
 
-    app = create_app(test_config={
-        "TESTING": True,
-        "DATABASE": db_path
-    })
+    app = create_app(test_config={"TESTING": True, "DATABASE": db_path})
 
     yield app
 
