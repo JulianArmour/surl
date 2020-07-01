@@ -6,17 +6,12 @@ from smurl import db
 
 
 def create_app(test_config=None):
-    app = Flask(__name__)
+    app = Flask(__name__, instance_relative_config=True)
 
-    app.config.from_mapping(
-        # default config
-        {
-            "SECRET_KEY": "DEV",
-            "DATABASE": os.path.join(app.instance_path, "smurl-db.sqlite"),
-        }
-    )
-    if test_config is not None:
-        app.config.update(test_config)
+    if test_config:
+        app.config.from_mapping(test_config)
+    else:
+        app.config.from_pyfile("config.py")
 
     try:
         os.makedirs(app.instance_path)
