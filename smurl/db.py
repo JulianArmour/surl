@@ -18,5 +18,11 @@ def close_db(e=None):
         db.close()
 
 
+def init_db():
+    db = get_db()
+    with current_app.open_resource("schema.sql") as schema:
+        db.executescript(schema.read().decode("UTF-8"))
+
+
 def init_app(app):
     app.teardown_appcontext(close_db)
