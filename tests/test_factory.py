@@ -1,6 +1,3 @@
-import pytest
-
-
 def test_create_app(app):
     assert app is not None
 
