@@ -17,3 +17,17 @@ def base_39_decode(base_39_str):
     return sum(
         char_index[char] * 39 ** i for i, char in enumerate(reversed(base_39_str))
     )
+
+
+def reverse_32(num):
+    """
+    reverses the bits representing the number
+    :param num: a number treated as being 32 bits long
+    :return: the reversed number
+    """
+    result = 0
+    for i in range(32):
+        result <<= 1
+        result |= num & 1
+        num >>= 1
+    return result

@@ -9,9 +9,9 @@ from smurl.db import get_db
 
 @pytest.fixture
 def app():
-    db_fd, db_path = tempfile.mkstemp()
+    # db_fd, db_path = tempfile.mkstemp()
     app = create_app(
-        test_config={"TESTING": True, "DATABASE": db_path, "SECRET_KEY": "TEST"}
+        test_config={"TESTING": True, "DATABASE": ":memory:", "SECRET_KEY": "TEST"}
     )
 
     with app.app_context():
@@ -21,5 +21,5 @@ def app():
 
     yield app
 
-    os.close(db_fd)
-    os.unlink(db_path)
+    # os.close(db_fd)
+    # os.unlink(db_path)
