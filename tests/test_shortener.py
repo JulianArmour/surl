@@ -57,5 +57,10 @@ def test_base_39_decode(test_input, expected):
         (int("1" + "0" * 30 + "1", 2), int("1" + "0" * 30 + "1", 2)),
     ],
 )
-def test_reverse_32(test_input, expected):
-    assert shortener.reverse_32(test_input) == expected
+def test_reverse_bits(test_input, expected):
+    assert shortener.reverse_bits(test_input) == expected
+
+
+@pytest.mark.parametrize("test_input,expected", [(1, "GQpqrq"), (2, "qVhhJJ")])
+def test_hash_id(test_input, expected):
+    assert shortener.hash_id(test_input) == expected

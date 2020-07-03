@@ -19,7 +19,7 @@ def base_39_decode(base_39_str):
     )
 
 
-def reverse_32(num):
+def reverse_bits(num):
     """
     reverses the bits representing the number
     :param num: a number treated as being 32 bits long
@@ -31,3 +31,7 @@ def reverse_32(num):
         result |= num & 1
         num >>= 1
     return result
+
+
+def hash_id(url_id):
+    return base_39_encode(reverse_bits(url_id))
