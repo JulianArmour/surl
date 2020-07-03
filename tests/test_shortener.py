@@ -71,3 +71,13 @@ def test_reverse_bits(test_input, expected):
 @pytest.mark.parametrize("test_input,expected", [(1, "GQpqrq"), (2, "qVhhJJ")])
 def test_hash_id(test_input, expected):
     assert shortener.hash_id(test_input) == expected
+
+
+@pytest.mark.parametrize("test_input, expected", [("GQpqrq", 1), ("qVhhJJ", 2)])
+def test_unhash_id(test_input, expected):
+    assert shortener.unhash_id(test_input) == expected
+
+
+@pytest.mark.parametrize("test_input, expected", [(1, 1), (2, 2), (100, 100)])
+def test_hash_unhash_id(test_input, expected):
+    assert shortener.unhash_id(shortener.hash_id(test_input)) == expected
