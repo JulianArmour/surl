@@ -49,6 +49,13 @@ def test_base_39_decode(test_input, expected):
 
 
 @pytest.mark.parametrize(
+    "test_input, expected", [(1, 1), (2, 2), (3, 3), (1000, 1000), (1000000, 1000000)]
+)
+def test_base_39_encode_decode(test_input, expected):
+    assert shortener.base_39_decode(shortener.base_39_encode(test_input)) == expected
+
+
+@pytest.mark.parametrize(
     "test_input,expected",
     [
         (0, 0),
