@@ -31,3 +31,18 @@ alphabet = "bcdfghjkmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ"
 def test_base_39_encode(test_input, expected):
     assert shortener.base_39_encode(test_input) == expected
 
+
+@pytest.mark.parametrize(
+    "test_input,expected",
+    [
+        ("b", 0),
+        ("c", 1),
+        ("d", 2),
+        ("cb", 39),
+        ("cbb", 39 ** 2),
+        ("ccb", 39 ** 2 + 39),
+        ("ZZZZ", (38 * 39 ** 3) + (38 * 39 ** 2) + (38 * 39) + 38),
+    ],
+)
+def test_base_39_decode(test_input, expected):
+    assert shortener.base_39_decode(test_input) == expected
