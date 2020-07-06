@@ -11,7 +11,13 @@ from smurl.db import get_db
 def app():
     db_fd, db_path = tempfile.mkstemp()
     app = create_app(
-        test_config={"TESTING": True, "DATABASE": db_path, "SECRET_KEY": "TEST"}
+        test_config={
+            "TESTING": True,
+            "DATABASE": db_path,
+            "SECRET_KEY": "TEST",
+            "SERVER_NAME": "mydomain.com",
+            "PREFERRED_URL_SCHEME": "https"
+        }
     )
     with app.app_context():
         db = get_db()
