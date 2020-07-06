@@ -1,4 +1,2 @@
--- noinspection SqlResolveForFile
-
 INSERT INTO UrlMap (original_url, short_hash)
-VALUES ('www.example.com/something', 'short')
+VALUES ('https://en.wikipedia.org/wiki/Main_Page', 'short')

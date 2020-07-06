@@ -3,6 +3,7 @@ import os
 from flask import Flask
 
 from smurl import db
+from smurl.view.shortener import shortener_bp
 
 
 def create_app(test_config=None):
@@ -19,4 +20,6 @@ def create_app(test_config=None):
         pass
 
     db.init_app(app)
+
+    app.register_blueprint(shortener_bp)
     return app
