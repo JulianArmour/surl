@@ -33,9 +33,9 @@ def reverse_bits(num):
     return result
 
 
-def hash_id(url_id):
+def hash_from_id(url_id):
     return base_39_encode(reverse_bits(url_id))
 
 
-def unhash_id(hashed_id):
+def id_from_hash(hashed_id):
     return reverse_bits(base_39_decode(hashed_id))
