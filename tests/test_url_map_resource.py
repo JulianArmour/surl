@@ -65,11 +65,14 @@ def test_post_custom_url(app):
         assert_response(app, rv, req_data, expected_hash="custom_url")
 
 
-def test_post_custom_redirect(app):
-    req_data = {
-        "original_url": "http://google.com",
-        "short_str": "custom_url",
-    }
+@pytest.mark.parametrize(
+    "req_data",
+    [
+        {"original_url": "http://google.com", "short_str": "custom_url"},
+        {"original_url": "https://abc.ca"},
+    ],
+)
+def test_post_redirect(app, req_data):
     with app.test_client() as c:
-        c.post("/api/urls", json=req_data)
-        assert c.get(f"/{req_data['short_str']}").location == req_data["original_url"]
+        url = c.post("/api/urls", json=req_data).get_json()["_links"]["short_url"]
+        assert c.get(url).location == req_data["original_url"]
