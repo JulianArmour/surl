@@ -1,3 +1,5 @@
+import sqlite3
+
 from flask import url_for
 from flask_restful import Resource, reqparse, inputs
 
@@ -14,13 +16,22 @@ class UrlMap(Resource):
         args = parser.parse_args()
         db = get_db()
         c = db.cursor()
-        c.execute("INSERT INTO HashIdGen DEFAULT VALUES")
-        new_id = c.lastrowid
-        id_hash = shortener.hash_from_id(new_id)
-        c.execute(
-            "INSERT INTO UrlMap (original_url, short_hash) VALUES (?,?)",
-            (args["original_url"], id_hash),
-        )
+        # The next generated short hash may be taken by a custom url. Keep trying until
+        # a free hash is found.
+        while True:
+            c.execute("INSERT INTO HashIdGen DEFAULT VALUES")
+            db.commit()
+            new_id = c.lastrowid
+            id_hash = shortener.hash_from_id(new_id)
+            try:
+                c.execute(
+                    "INSERT INTO UrlMap (original_url, short_hash) VALUES (?,?)",
+                    (args["original_url"], id_hash),
+                )
+                db.commit()
+                break
+            except sqlite3.IntegrityError:
+                continue
 
         return {
             "_links": {
