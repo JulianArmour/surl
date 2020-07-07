@@ -65,6 +65,16 @@ def test_post_custom_url(app):
         assert_response(app, rv, req_data, expected_hash="custom_url")
 
 
+def test_post_custom_url_conflict(app):
+    req_data = {
+        "original_url": "http://asdf.com",
+        "short_str": "short",
+    }
+    with app.test_client() as c:
+        rv = c.post("/api/urls", json=req_data)
+        assert rv.status_code == 409
+
+
 @pytest.mark.parametrize(
     "req_data",
     [
