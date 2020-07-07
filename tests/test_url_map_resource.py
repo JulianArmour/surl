@@ -53,3 +53,23 @@ def test_post_generate_with_conflict(app_conflict):
         req_data = {"original_url": "http://something.io"}
         rv = c.post("/api/urls", json=req_data)
         assert_response(app, rv, req_data, expected_hash=hash_from_id(1 + next_id))
+
+
+def test_post_custom_url(app):
+    with app.test_client() as c:
+        req_data = {
+            "original_url": "http://google.com",
+            "short_str": "custom_url",
+        }
+        rv = c.post("/api/urls", json=req_data)
+        assert_response(app, rv, req_data, expected_hash="custom_url")
+
+
+def test_post_custom_redirect(app):
+    req_data = {
+        "original_url": "http://google.com",
+        "short_str": "custom_url",
+    }
+    with app.test_client() as c:
+        c.post("/api/urls", json=req_data)
+        assert c.get(f"/{req_data['short_str']}").location == req_data["original_url"]
