@@ -16,7 +16,7 @@ def app():
             "DATABASE": db_path,
             "SECRET_KEY": "TEST",
             "SERVER_NAME": "mydomain.com",
-            "PREFERRED_URL_SCHEME": "https"
+            "PREFERRED_URL_SCHEME": "https",
         }
     )
     with app.app_context():
@@ -30,8 +30,3 @@ def app():
 
     os.close(db_fd)
     os.unlink(db_path)
-
-
-@pytest.fixture
-def client(app):
-    return app.test_client()
