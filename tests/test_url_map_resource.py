@@ -5,7 +5,7 @@ from smurl.shortener import hash_from_id
 
 
 @pytest.fixture
-def app_conflict(app):
+def app_conflict_next_generated(app):
     """
     :param app: app fixture
     :return: an app fixture for which the next auto-generated short url will conflict
@@ -29,7 +29,7 @@ def assert_response(app, rv, req_data, expected_hash=None):
     json_data = rv.get_json()
     assert len(json_data["short_str"]) > 0
     assert json_data["original_url"] == req_data["original_url"]
-    assert json_data["_links"]["short_url"] == "".join(
+    assert json_data["_links"]["short_url"]["href"] == "".join(
         (
             app.config["PREFERRED_URL_SCHEME"],
             "://",
@@ -47,8 +47,8 @@ def test_post_generate(app):
         assert_response(app, rv, req_data)
 
 
-def test_post_generate_with_conflict(app_conflict):
-    app, next_id = app_conflict
+def test_post_generate_with_conflict(app_conflict_next_generated):
+    app, next_id = app_conflict_next_generated
     with app.test_client() as c:
         req_data = {"original_url": "http://something.io"}
         rv = c.post("/api/urls", json=req_data)
@@ -84,5 +84,6 @@ def test_post_custom_url_conflict(app):
 )
 def test_post_redirect(app, req_data):
     with app.test_client() as c:
-        url = c.post("/api/urls", json=req_data).get_json()["_links"]["short_url"]
+        json = c.post("/api/urls", json=req_data).get_json()
+        url = json["_links"]["short_url"]["href"]
         assert c.get(url).location == req_data["original_url"]

@@ -26,9 +26,11 @@ class UrlMap(Resource):
 
         return {
             "_links": {
-                "short_url": url_for(
-                    "shortener.redirect_short", short_hash=short_str, _external=True
-                )
+                "short_url": {
+                    "href": url_for(
+                        "shortener.redirect_short", short_hash=short_str, _external=True
+                    )
+                }
             },
             "original_url": args["original_url"],
             "short_str": short_str,
