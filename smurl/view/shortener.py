@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect
+from flask import Blueprint, redirect, render_template
 
 from smurl.db import get_db
 
@@ -12,3 +12,8 @@ def redirect_short(short_hash):
         "SELECT original_url FROM UrlMap WHERE short_hash = ?", (short_hash,)
     ).fetchone()["original_url"]
     return redirect(url)
+
+
+@shortener_bp.route("/")
+def index():
+    return render_template("index.html")
