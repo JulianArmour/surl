@@ -1,4 +1,4 @@
-from smurl import create_app
+from Surl import create_app
 
 
 def test_test_config():

@@ -1,7 +1,7 @@
 import pytest
 
-from smurl.db import get_db
-from smurl.shortener import hash_from_id
+from Surl.db import get_db
+from Surl.shortener import hash_from_id
 
 
 @pytest.fixture

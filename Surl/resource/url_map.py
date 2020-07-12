@@ -3,8 +3,8 @@ import sqlite3
 from flask import url_for
 from flask_restful import Resource, reqparse, inputs
 
-from smurl import shortener
-from smurl.db import get_db
+from Surl import shortener
+from Surl.db import get_db
 
 parser = reqparse.RequestParser()
 parser.add_argument("original_url", type=inputs.url, required=True, trim=True)

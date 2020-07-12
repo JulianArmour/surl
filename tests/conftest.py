@@ -3,8 +3,8 @@ import tempfile
 
 import pytest
 
-from smurl import create_app
-from smurl.db import get_db
+from Surl import create_app
+from Surl.db import get_db
 
 
 @pytest.fixture
