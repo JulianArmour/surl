@@ -3,8 +3,8 @@ import tempfile
 
 import pytest
 
-from Surl import create_app
-from Surl.db import get_db
+from surl import create_app
+from surl.db import get_db
 
 
 @pytest.fixture

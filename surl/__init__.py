@@ -3,9 +3,9 @@ import os
 from flask import Flask
 from flask_restful import Api
 
-from Surl import db
-from Surl.resource.url_map import UrlMap
-from Surl.view.shortener import shortener_bp
+from surl import db
+from surl.resource.url_map import UrlMap
+from surl.view.shortener import shortener_bp
 
 
 def create_app(test_config=None):

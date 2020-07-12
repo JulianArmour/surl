@@ -1,6 +1,6 @@
 import pytest
 
-from Surl import shortener
+from surl import shortener
 
 alphabet = "bcdfghjkmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ"
 

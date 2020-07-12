@@ -2,7 +2,7 @@ import sqlite3
 
 import pytest
 
-from Surl.db import get_db, close_db
+from surl.db import get_db, close_db
 
 
 def test_get_db(app):

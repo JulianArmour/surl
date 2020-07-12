@@ -1,7 +1,7 @@
 import pytest
 
-from Surl.db import get_db
-from Surl.shortener import hash_from_id
+from surl.db import get_db
+from surl.shortener import hash_from_id
 
 
 @pytest.fixture

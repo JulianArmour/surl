@@ -1,6 +1,6 @@
 from flask import Blueprint, redirect, render_template
 
-from Surl.db import get_db
+from surl.db import get_db
 
 shortener_bp = Blueprint("shortener", __name__)
 
