@@ -26,7 +26,6 @@ function Shortening() {
     this.button = document.getElementById("shorten-btn");
 
     this.button.textContent = "Shorten";
-    this.urlInput.value = null;
     this.urlInput.removeAttribute("readonly")
 
     this.handleButtonClick = function (app) {

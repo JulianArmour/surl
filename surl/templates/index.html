@@ -12,11 +12,12 @@
 <main style="margin-top: 4em; width: 100%; text-align: center">
     <h1 style="font-size: 5em; margin-bottom: 0">Surl</h1>
     <small style="font-style: italic;">A simple URL shortener</small>
-    <form onsubmit="function f(e) {e.preventDefault()}" style="margin-top: 60px; display: flex; flex-flow: column; align-items: center">
+    <form onsubmit="app.handleButtonClick(); return false;"
+          style="margin-top: 60px; display: flex; flex-flow: column; align-items: center">
         <label for="url-input"></label>
-        <input autofocus id="url-input" name="original_url" placeholder="https://" type="url"
+        <input id="url-input" name="original_url" placeholder="https://" type="url"
                style="margin: 6px; width: 80%;">
-        <button id="shorten-btn" onclick="app.handleButtonClick()" type="button" style="margin: 30px">Shorten</button>
+        <button type="submit" id="shorten-btn"  style="margin: 30px">Shorten</button>
     </form>
 </main>
 </body>
