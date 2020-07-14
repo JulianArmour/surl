@@ -1,0 +1,4 @@
+include surl/schema.sql
+graft surl/static
+graft surl/templates
+global-exclude *.pyc
