@@ -1,4 +1,5 @@
 import pytest
+from flask import url_for
 
 from surl.db import get_db
 from surl.shortener import hash_from_id
@@ -82,8 +83,20 @@ def test_post_custom_url_conflict(app):
         {"original_url": "https://abc.ca"},
     ],
 )
-def test_post_redirect(app, req_data):
+def test_url_redirect(app, req_data):
     with app.test_client() as c:
         json = c.post("/api/urls", json=req_data).get_json()
         url = json["_links"]["short_url"]["href"]
         assert c.get(url).location == req_data["original_url"]
+
+
+def test_home_redirect(app):
+    with app.test_client() as c:
+        assert c.get("/nonExisting").location == "".join(
+            [
+                app.config["PREFERRED_URL_SCHEME"],
+                "://",
+                app.config["SERVER_NAME"],
+                url_for("shortener.index"),
+            ]
+        )
