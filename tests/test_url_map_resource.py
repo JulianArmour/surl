@@ -100,3 +100,10 @@ def test_home_redirect(app):
                 url_for("shortener.index"),
             ]
         )
+
+
+def test_index(app):
+    with app.test_client() as c:
+        with app.app_context():
+            rv = c.get(url_for("shortener.index"))
+    assert rv.status_code == 200
