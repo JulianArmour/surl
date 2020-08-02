@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.min.css">
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/index.css") }}">
     <title>Surls</title>
     <meta content="A Simple Url Shortener" name="description">
     <script async src="{{ url_for("static", filename="js/shortener.js") }}"></script>
 </head>
-<body style="display: flex; justify-content: center; align-items: center;">
-<main style="margin-top: 4em; width: 100%; text-align: center">
-    <h1 style="font-size: 5em; margin-bottom: 0">Surls</h1>
-    <small style="font-style: italic;">A simple URL shortener</small>
-    <form onsubmit="app.handleButtonClick(); return false;"
-          style="margin-top: 60px; display: flex; flex-flow: column; align-items: center">
+<body>
+<main>
+    <h1>Surls</h1>
+    <small>A simple URL shortener</small>
+    <form onsubmit="app.handleButtonClick(); return false;">
         <label for="url-input"></label>
-        <input id="url-input" name="original_url" placeholder="https://" type="url"
-               style="margin: 6px; width: 80%;">
-        <button type="submit" id="shorten-btn"  style="margin: 30px">Shorten</button>
+        <input id="url-input" name="original_url" placeholder="https://" type="url">
+        <button type="submit" id="shorten-btn">Shorten</button>
+        <button type="submit" id="custom-btn">Custom</button>
     </form>
 </main>
 </body>

@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    margin-top: 4em;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-size: 5em;
+    margin-bottom: 0;
+}
+
+small {
+    font-style: italic;
+}
+
+form {
+    margin-top: 60px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+input {
+    margin: 6px;
+    width: 80%;
+}
+
+button {
+    margin-top: 30px;
+}
