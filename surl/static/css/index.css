@@ -21,16 +21,31 @@ small {
 
 form {
     margin-top: 60px;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
 }
 
 input {
-    margin: 6px;
-    width: 80%;
+    margin: 0 auto;
+    width: 60%;
+}
+
+.custom-section {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 2em auto 0;
+    width: 62%;
+}
+
+#custom-input {
+    display: inline-block;
+    flex-grow: 1;
+    margin: 0 0 0 0.7em;
 }
 
 button {
     margin-top: 30px;
+}
+
+.btn-secondary {
+    background-color: inherit;
 }

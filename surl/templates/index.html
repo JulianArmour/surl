@@ -16,8 +16,12 @@
     <form onsubmit="app.handleButtonClick(); return false;">
         <label for="url-input"></label>
         <input id="url-input" name="original_url" placeholder="https://" type="url">
-        <button type="submit" id="shorten-btn">Shorten</button>
-        <button type="submit" id="custom-btn">Custom</button>
+        <section class="custom-section">
+            <label for="custom-input">surls.gq/</label>
+            <input id="custom-input" name="original_url" type="text">
+        </section>
+        <button type="submit" id="shorten-btn">shorten</button>
+        <button class="btn-secondary" type="button" id="custom-btn">Custom</button>
     </form>
 </main>
 </body>
