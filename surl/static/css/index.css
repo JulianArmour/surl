@@ -33,7 +33,6 @@ input {
     display: flex;
     justify-content: center;
     margin: 3em auto 0;
-    /*width: 62%;*/
     width: 25%;
 }
 
@@ -41,13 +40,16 @@ input {
     display: inline-block;
     flex-grow: 1;
     margin: 0 0 0 0.5em;
-    /*max-width: 20%;*/
 }
 
 button {
-    margin-top: 30px;
+    margin-top: 3em;
 }
 
 .btn-secondary {
     background-color: inherit;
+}
+
+.hidden-none {
+    display: none;
 }

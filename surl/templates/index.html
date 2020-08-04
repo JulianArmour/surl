@@ -8,6 +8,7 @@
     <title>Surls</title>
     <meta content="A Simple Url Shortener" name="description">
     <script async src="{{ url_for("static", filename="js/shortener.js") }}"></script>
+    <script async src="{{ url_for("static", filename="js/customUrl.js") }}"></script>
 </head>
 <body>
 <main>
@@ -16,7 +17,7 @@
     <form onsubmit="app.handleButtonClick(); return false;">
         <label for="url-input"></label>
         <input id="url-input" name="original_url" placeholder="https://" type="url">
-        <section class="custom-section">
+        <section class="custom-section hidden-none" id="custom-section">
             <label for="custom-input">surls.gq/</label>
             <input id="custom-input" name="original_url" type="text">
         </section>
