@@ -1,9 +1,14 @@
 const customBtn = document.getElementById("custom-btn");
+const customSection = document.getElementById("custom-section");
+let customIsVisible = false;
 
 function toggleCustom() {
-    document.getElementById("custom-section").classList.remove("hidden-none");
-    customBtn.classList.add("hidden-none")
+    if (!customIsVisible) {
+        customSection.classList.remove("hidden-none");
+    } else {
+        customSection.classList.add("hidden-none");
+    }
+    customIsVisible = !customIsVisible;
 }
-
 
 customBtn.addEventListener("click", toggleCustom)
