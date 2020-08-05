@@ -23,6 +23,12 @@ form {
     margin-top: 60px;
 }
 
+.error-txt {
+    color: #d08770;
+    display: block;
+    margin-top: 1em;
+}
+
 input {
     margin: 0 auto;
     width: 60%;
