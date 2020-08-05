@@ -11,4 +11,4 @@ function toggleCustom() {
     customIsVisible = !customIsVisible;
 }
 
-customBtn.addEventListener("click", toggleCustom)
+customBtn.addEventListener("click", toggleCustom);
