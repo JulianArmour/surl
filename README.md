@@ -1,8 +1,8 @@
-# Welcome to Surl!
+# 👋 Welcome to Surl!
 
-Surl is a simple, no-nonsense url shortener
+Surl is a simple, no-nonsense url 🔗 shortener.
 
-You can try it live at [surls](https://surls.gq/)
+You can check it out **live** 😲 <a href="https://surls.gq/" target="_blank">right here</a>!
 
 Here's what it looks like:
 
@@ -12,6 +12,6 @@ Click on `Shorten` and voila!
 
 <img src="preview-images/shorten.png"  alt="preview of the shortened url"/>
 
-You can also create a **custom** url ending
+You can also create a ✨**custom**✨ url ending.
 
 <img src="preview-images/custom.png"  alt="preview of creating a custom url ending"/>
