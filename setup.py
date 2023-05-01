@@ -6,5 +6,5 @@ setup(
     packages=find_packages(exclude=["tests", "tests.*"]),
     include_package_data=True,
     zip_safe=False,
-    install_requires=["flask==1.1.2", "flask-restful==0.3.8"],
+    install_requires=["flask==2.3.2", "flask-restful==0.3.8"],
 )
